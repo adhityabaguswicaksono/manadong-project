@@ -9,10 +9,10 @@ import {
 	Button,
 	Card,
 	CardBody,
+	Container,
 	Grid,
 	Heading,
 	Image,
-	Stack,
 	Text,
 } from '@chakra-ui/react';
 
@@ -60,9 +60,11 @@ export default function Outlet() {
 		<>
 			<NavigationBar />
 
-			<Stack
+			<Container
+				maxWidth={'container.xl'}
 				gap={4}
-				padding={6}>
+				paddingY={6}
+				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
 				<Box
 					display={'flex'}
 					gap={4}
@@ -95,12 +97,14 @@ export default function Outlet() {
 						{locationBreadcrumb.map((data, index) => {
 							let link = '';
 							for (let i = 0; i <= index; i++) {
+								if (i === 0 && index === 0) {
+									link += '/';
+									break;
+								}
 								link += locationBreadcrumb[i];
-								if (i !== index) {
+								if (i < index) {
 									link += '/';
 								}
-
-								console.info(link);
 							}
 							return (
 								<BreadcrumbItem key={data}>
@@ -125,8 +129,7 @@ export default function Outlet() {
 
 				<Box
 					width={'100%'}
-					paddingX={6}
-					paddingY={8}
+					paddingTop={8}
 					display={'flex'}
 					flexDirection={'column'}
 					flexWrap={'wrap'}
@@ -189,7 +192,7 @@ export default function Outlet() {
 						<Image src="/assets/images/HeaderImage.png"></Image>
 					</Grid>
 				</Box>
-			</Stack>
+			</Container>
 
 			<FooterBar />
 		</>

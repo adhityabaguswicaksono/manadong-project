@@ -1,4 +1,4 @@
-import { Box, Grid, Heading, Stack, Text } from '@chakra-ui/react';
+import { Box, Container, Heading, Text } from '@chakra-ui/react';
 import FooterBar from '../components/FooterBar';
 import NavigationBar from '../components/NavigationBar';
 
@@ -7,16 +7,15 @@ export default function Eatery() {
 		<>
 			<NavigationBar />
 
-			<Stack
+			<Container
+				maxWidth={'container.xl'}
 				gap={4}
-				padding={6}>
+				paddingY={6}
+				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
 				<Box
 					width={'100%'}
-					paddingY={8}
 					display={'flex'}
 					flexDirection={'column'}
-					flexWrap={'wrap'}
-					justifyContent={'start'}
 					gap={4}>
 					<Box>
 						<Heading
@@ -31,9 +30,7 @@ export default function Eatery() {
 							borderRadius={2}></Box>
 					</Box>
 
-					<Grid
-						templateColumns={'repeat(1, 1fr)'}
-						gap={4}>
+					<Box>
 						<Text>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
 							gravida, tortor id pretium viverra, lectus ante tristique tortor,
@@ -51,9 +48,9 @@ export default function Eatery() {
 							sagittis ante. Sed faucibus felis at porta tristique. Cras
 							placerat vel risus id rutrum.
 						</Text>
-					</Grid>
+					</Box>
 				</Box>
-			</Stack>
+			</Container>
 			<FooterBar />
 		</>
 	);

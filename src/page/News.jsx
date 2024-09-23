@@ -1,4 +1,4 @@
-import { Box, Grid, Heading, Stack, Text } from '@chakra-ui/react';
+import { Box, Container, Grid, Heading, Stack, Text } from '@chakra-ui/react';
 import FooterBar from '../components/FooterBar';
 import NavigationBar from '../components/NavigationBar';
 
@@ -7,12 +7,13 @@ export default function News() {
 		<>
 			<NavigationBar />
 
-			<Stack
+			<Container
+				maxWidth={'container.xl'}
 				gap={4}
-				padding={6}>
+				paddingY={6}
+				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
 				<Box
 					width={'100%'}
-					paddingY={8}
 					display={'flex'}
 					flexDirection={'column'}
 					flexWrap={'wrap'}
@@ -53,7 +54,7 @@ export default function News() {
 						</Text>
 					</Grid>
 				</Box>
-			</Stack>
+			</Container>
 			<FooterBar />
 		</>
 	);

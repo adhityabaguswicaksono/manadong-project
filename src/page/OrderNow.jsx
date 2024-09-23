@@ -6,6 +6,7 @@ import {
 	Button,
 	Card,
 	CardBody,
+	Container,
 	Grid,
 	Heading,
 	Image,
@@ -42,7 +43,8 @@ export default function OrderNow() {
 		<>
 			<NavigationBar />
 
-			<Stack
+			<Container
+				maxWidth={'container.xl'}
 				gap={4}
 				padding={6}>
 				<Box
@@ -77,6 +79,10 @@ export default function OrderNow() {
 						{locationBreadcrumb.map((data, index) => {
 							let link = '';
 							for (let i = 0; i <= index; i++) {
+								if (i === 0 && index === 0) {
+									link += '/';
+									break;
+								}
 								link += locationBreadcrumb[i];
 								if (i < index) {
 									link += '/';
@@ -104,8 +110,7 @@ export default function OrderNow() {
 
 				<Box
 					width={'100%'}
-					paddingX={6}
-					paddingY={8}
+					paddingTop={8}
 					display={'flex'}
 					flexDirection={'column'}
 					flexWrap={'wrap'}
@@ -160,7 +165,7 @@ export default function OrderNow() {
 						))}
 					</Grid>
 				</Box>
-			</Stack>
+			</Container>
 			<FooterBar />
 		</>
 	);
