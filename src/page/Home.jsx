@@ -29,137 +29,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 
-const dataMenu = [
-	{
-		title: 'Ayam Rica',
-		picture: 'public/assets/images/Ayam Rica.png',
-		isNew: true,
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		price: 'Rp40.000,-',
-	},
-	{
-		title: 'Cumi Hitam',
-		picture: 'public/assets/images/Cumi Hitam.png',
-		isNew: false,
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		price: 'Rp40.000,-',
-	},
-	{
-		title: 'Cakalang Tinorasak',
-		picture: 'public/assets/images/Cakalang Tinorasak.png',
-		isNew: false,
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		price: 'Rp40.000,-',
-	},
-	{
-		title: 'Perkedel Jagung',
-		picture: 'public/assets/images/Perkedel Jagung.png',
-		isNew: false,
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		price: 'Rp40.000,-',
-	},
-	{
-		title: 'Ayam Woku',
-		picture: 'public/assets/images/Ayam Woku.png',
-		isNew: false,
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		price: 'Rp40.000,-',
-	},
-	{
-		title: 'Lauk Frozen',
-		picture: 'public/assets/images/Lauk Frozen.png',
-		isNew: false,
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		price: 'Rp40.000,-',
-	},
-	{
-		title: 'Cakalang Rabe',
-		picture: 'public/assets/images/Cakalang Rabe.png',
-		isNew: false,
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		price: 'Rp40.000,-',
-	},
-];
-
-const dataPromotion = [
-	{
-		picture: 'public/assets/images/Discount Picture.jpg',
-		title: 'Buy 2 Get 1',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		picture: 'public/assets/images/Discount Picture.jpg',
-		title: 'Discount 20%',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		picture: 'public/assets/images/Discount Picture.jpg',
-		title: 'Bundle Deal',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-];
-
-const dataReviews = [
-	{
-		title: 'Adhitya',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Bagus',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Wicaksono',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Adhitya',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Bagus',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Wicaksono',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-];
-
-const dataLocations = [
-	{
-		title: 'Senopati, Petogogan',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Kebon Jeruk / Tanjung Duren',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Food Plaza PIK',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: "Kuningan - D'Kanteen",
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Bintaro, Thelapan Square',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Gading Serpong',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Cipete',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Menteng',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-];
+import { dataLocations, dataMenu, dataPromotion, dataReviews } from '../data';
 
 export default function Home() {
 	return (
@@ -170,13 +40,14 @@ export default function Home() {
 			{/* Header Section */}
 			<Box
 				backgroundColor={'manadong-red.50'}
-				position={'relative'}>
+				position={'relative'}
+				overflow={'hidden'}>
 				<Container
 					maxWidth={'container.xl'}
 					paddingX={{ base: 0, md: 4 }}>
 					<Grid
 						gridAutoFlow={'dense'}
-						minHeight={'500px'}
+						minHeight={'35rem'}
 						gridTemplateColumns={{ base: '1fr', md: '250px 1fr' }}
 						width={'100%'}
 						gap={{ base: 4, lg: 12 }}>
@@ -221,16 +92,15 @@ export default function Home() {
 						</Box>
 						<Box
 							display={{ base: 'none', md: 'block' }}
-							position={'absolute'}
+							// position={'absolute'}
 							right={0}
 							top={0}
 							backgroundImage={"url('/assets/images/HeaderImage.png')"}
 							backgroundRepeat={'no-repeat'}
 							backgroundPosition={'center'}
 							backgroundSize={'cover'}
-							width={{ base: '100%', md: 'calc(100dvw - 20rem)' }}
-							maxW={'1000px'}
-							height={{ base: '400px', md: '500px' }}
+							width={'calc(80dvw)'}
+							height={'100%'}
 						/>
 					</Grid>
 				</Container>
@@ -240,7 +110,6 @@ export default function Home() {
 			<Container maxWidth={'container.xl'}>
 				<Stack
 					gap={8}
-					// paddingX={6}
 					paddingY={8}>
 					<Box>
 						<Heading
@@ -257,7 +126,7 @@ export default function Home() {
 
 					<Grid
 						templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }}
-						gap={6}>
+						gap={4}>
 						{dataMenu.map((data) => (
 							<ModalMenu
 								key={data.title}
@@ -304,9 +173,8 @@ export default function Home() {
 								borderRadius={2}></Box>
 						</Box>
 
-						<Box
+						<Grid
 							width={'100%'}
-							display={'grid'}
 							gridTemplateColumns={{
 								base: 'repeat(2, 1fr)',
 								md: 'repeat(3, 1fr)',
@@ -333,7 +201,7 @@ export default function Home() {
 									</CardBody>
 								</Card>
 							))}
-						</Box>
+						</Grid>
 					</Grid>
 				</Container>
 			</Box>
@@ -380,15 +248,14 @@ export default function Home() {
 						style={{ padding: '0.25rem', marginTop: '1.5rem' }}>
 						{dataReviews.map((data) => (
 							<SwiperSlide key={data.title}>
-								<Card>
-									<Text
-										textAlign={'left'}
-										color={'manadong-red.500'}
-										fontSize={'xx-large'}
-										marginLeft={2}>
-										{'"'}
-									</Text>
-									<CardBody>
+								<Card position={'relative'}>
+									<Image
+										position={'absolute'}
+										src="assets/images/Quotes Icon.svg"
+										width={8}
+										top={2}
+										left={2}></Image>
+									<CardBody padding={12}>
 										<Text
 											color={'manadong-blue.500'}
 											fontSize={'larger'}
@@ -398,54 +265,17 @@ export default function Home() {
 										</Text>
 										<Text>{data.description}</Text>
 									</CardBody>
-									<Text
-										textAlign={'right'}
-										color={'manadong-red.500'}
-										fontSize={'xx-large'}
-										marginRight={2}>
-										{'"'}
-									</Text>
+									<Image
+										position={'absolute'}
+										src="assets/images/Quotes Icon.svg"
+										width={8}
+										bottom={2}
+										right={2}
+										transform={'rotate(180deg)'}></Image>
 								</Card>
 							</SwiperSlide>
 						))}
-						{/* <SwiperSlide>Slide 1</SwiperSlide>
-						<SwiperSlide>Slide 2</SwiperSlide>
-						<SwiperSlide>Slide 3</SwiperSlide>
-						<SwiperSlide>Slide 4</SwiperSlide> */}
 					</Swiper>
-
-					{/* <Grid
-						templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
-						gap={6}>
-						{dataReviews.map((data) => (
-							<Card key={data.title}>
-								<Text
-									textAlign={'left'}
-									color={'manadong-red.500'}
-									fontSize={'xx-large'}
-									marginLeft={2}>
-									{'"'}
-								</Text>
-								<CardBody>
-									<Text
-										color={'manadong-blue.500'}
-										fontSize={'larger'}
-										fontWeight={600}
-										marginBottom={2}>
-										{data.title}
-									</Text>
-									<Text>{data.description}</Text>
-								</CardBody>
-								<Text
-									textAlign={'right'}
-									color={'manadong-red.500'}
-									fontSize={'xx-large'}
-									marginRight={2}>
-									{'"'}
-								</Text>
-							</Card>
-						))}
-					</Grid> */}
 				</Container>
 			</Box>
 
@@ -471,13 +301,13 @@ export default function Home() {
 
 					<Grid
 						templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
-						gap={6}>
+						gap={4}>
 						{dataLocations.map((data) => (
 							<Card key={data.title}>
 								<CardBody>
 									<Box
 										display={'flex'}
-										alignItems={'start'}
+										alignItems={'center'}
 										gap={4}>
 										<Box
 											width={20}
@@ -562,7 +392,7 @@ function ModalMenu({ data }) {
 				onClose={onClose}
 				isCentered>
 				<ModalOverlay />
-				<ModalContent>
+				<ModalContent borderRadius={'xl'}>
 					<ModalCloseButton
 						backgroundColor={'white'}
 						size={'lg'}
@@ -580,8 +410,7 @@ function ModalMenu({ data }) {
 								direction={'column'}
 								padding={4}>
 								<Text
-									textAlign={'center'}
-									fontWeight={600}
+									fontWeight={700}
 									fontSize={'x-large'}
 									color={'manadong-blue.500'}>
 									{data.title + ' '}

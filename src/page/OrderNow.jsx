@@ -10,30 +10,14 @@ import {
 	Grid,
 	Heading,
 	Image,
+	Link,
 	Stack,
 	Text,
 } from '@chakra-ui/react';
 import FooterBar from '../components/FooterBar';
 import NavigationBar from '../components/NavigationBar';
 import { NavLink, useLocation } from 'react-router-dom';
-
-const dataOrder = [
-	{
-		title: 'Grab Food',
-		picture: 'public/assets/images/Grab Food Logo.png',
-		link: 'grab-food',
-	},
-	{
-		title: 'GoFood',
-		picture: 'public/assets/images/GoFood Logo.png',
-		link: 'gofood',
-	},
-	{
-		title: 'Shopee Food',
-		picture: 'public/assets/images/Shopee Food Logo.png',
-		link: 'shopee-food',
-	},
-];
+import { dataOrder } from '../data';
 
 export default function OrderNow() {
 	const location = useLocation().pathname;
@@ -46,16 +30,24 @@ export default function OrderNow() {
 			<Container
 				maxWidth={'container.xl'}
 				gap={4}
-				padding={6}>
+				paddingY={6}
+				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
 				<Box
 					display={'flex'}
+					flexDirection={'row'}
+					justifyContent={'start'}
+					alignItems={'center'}
 					gap={4}
+					minHeight={'0.5rem'}
 					borderRadius={'lg'}
 					borderWidth={1}
 					borderColor={'manadong-blue.500'}>
-					<NavLink
+					<Link
+						as={NavLink}
 						to={-1}
-						end>
+						paddingX={3}
+						borderRight={'1px solid #004687'}
+						_hover={{ textDecoration: 'none' }}>
 						<Box
 							display={'flex'}
 							flexWrap={'nowrap'}
@@ -68,12 +60,7 @@ export default function OrderNow() {
 							/>
 							<Text>Back</Text>
 						</Box>
-					</NavLink>
-
-					<Box
-						width={'0.5px'}
-						margin={0}
-						backgroundColor={'manadong-blue.500'}></Box>
+					</Link>
 
 					<Breadcrumb padding={{ base: 1, md: 2 }}>
 						{locationBreadcrumb.map((data, index) => {

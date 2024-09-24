@@ -13,43 +13,10 @@ import {
 	Grid,
 	Heading,
 	Image,
+	Link,
 	Text,
 } from '@chakra-ui/react';
-
-const dataLocations = [
-	{
-		title: 'Senopati, Petogogan',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Kebon Jeruk / Tanjung Duren',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Food Plaza PIK',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: "Kuningan - D'Kanteen",
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Bintaro, Thelapan Square',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Gading Serpong',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Cipete',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-	{
-		title: 'Menteng',
-		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	},
-];
+import { dataLocations } from '../data';
 
 export default function Outlet() {
 	const location = useLocation().pathname;
@@ -67,13 +34,20 @@ export default function Outlet() {
 				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
 				<Box
 					display={'flex'}
+					flexDirection={'row'}
+					justifyContent={'start'}
+					alignItems={'center'}
 					gap={4}
+					minHeight={'0.5rem'}
 					borderRadius={'lg'}
 					borderWidth={1}
 					borderColor={'manadong-blue.500'}>
-					<NavLink
+					<Link
+						as={NavLink}
 						to={-1}
-						end>
+						paddingX={3}
+						borderRight={'1px solid #004687'}
+						_hover={{ textDecoration: 'none' }}>
 						<Box
 							display={'flex'}
 							flexWrap={'nowrap'}
@@ -86,12 +60,7 @@ export default function Outlet() {
 							/>
 							<Text>Back</Text>
 						</Box>
-					</NavLink>
-
-					<Box
-						width={'0.5px'}
-						margin={0}
-						backgroundColor={'manadong-blue.500'}></Box>
+					</Link>
 
 					<Breadcrumb padding={{ base: 1, md: 2 }}>
 						{locationBreadcrumb.map((data, index) => {

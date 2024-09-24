@@ -1,4 +1,12 @@
-import { Box, Container, Grid, Heading, Image, Text } from '@chakra-ui/react';
+import {
+	Box,
+	Container,
+	Grid,
+	Heading,
+	Image,
+	Stack,
+	Text,
+} from '@chakra-ui/react';
 import FooterBar from '../components/FooterBar';
 import NavigationBar from '../components/NavigationBar';
 
@@ -37,23 +45,29 @@ export default function AboutUs() {
 						gap={4}>
 						<Image src="/assets/images/HeaderImage.png"></Image>
 
-						<Text>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-							gravida, tortor id pretium viverra, lectus ante tristique tortor,
-							vitae accumsan ex mi at magna. Vestibulum lacus nulla, hendrerit
-							venenatis felis quis, rhoncus cursus elit. Nullam convallis
-							pulvinar leo at fermentum. Aliquam vel varius tortor. Ut mattis,
-							orci et elementum dapibus, sapien ligula ultricies libero, in
-							dapibus nisi nibh a nisl. Nam vulputate neque sem, vitae eleifend
-							massa laoreet eu. Donec porttitor, velit efficitur mollis rhoncus,
-							justo tortor fermentum quam, at sodales mauris purus a mi. Donec
-							dapibus augue ac tristique vulputate. Phasellus id ultrices lorem.
-							In pharetra molestie libero cursus fringilla. Suspendisse
-							consequat sodales orci, at molestie nulla bibendum vitae.
-							Pellentesque massa nisl, vulputate faucibus dolor non, dapibus
-							sagittis ante. Sed faucibus felis at porta tristique. Cras
-							placerat vel risus id rutrum.
-						</Text>
+						<Stack
+							direction={'column'}
+							gap={6}>
+							<Heading>About Our Company</Heading>
+							<Text>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Curabitur gravida, tortor id pretium viverra, lectus ante
+								tristique tortor, vitae accumsan ex mi at magna. Vestibulum
+								lacus nulla, hendrerit venenatis felis quis, rhoncus cursus
+								elit. Nullam convallis pulvinar leo at fermentum. Aliquam vel
+								varius tortor. Ut mattis, orci et elementum dapibus, sapien
+								ligula ultricies libero, in dapibus nisi nibh a nisl. Nam
+								vulputate neque sem, vitae eleifend massa laoreet eu. Donec
+								porttitor, velit efficitur mollis rhoncus, justo tortor
+								fermentum quam, at sodales mauris purus a mi. Donec dapibus
+								augue ac tristique vulputate. Phasellus id ultrices lorem. In
+								pharetra molestie libero cursus fringilla. Suspendisse consequat
+								sodales orci, at molestie nulla bibendum vitae. Pellentesque
+								massa nisl, vulputate faucibus dolor non, dapibus sagittis ante.
+								Sed faucibus felis at porta tristique. Cras placerat vel risus
+								id rutrum.
+							</Text>
+						</Stack>
 					</Grid>
 				</Box>
 			</Container>

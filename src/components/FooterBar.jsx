@@ -14,7 +14,7 @@ export default function FooterBar() {
 		<Box
 			width={'100%'}
 			height={{ base: 'fit-content', md: '16rem' }}
-			paddingY={'12'}
+			paddingY={12}
 			backgroundColor={'manadong-blue.500'}
 			color={'white'}>
 			<Container maxWidth={'container.xl'}>
