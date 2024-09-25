@@ -132,17 +132,14 @@ const dataLocations = [
 
 const dataOrder = [
 	{
-		title: 'Grab Food',
 		picture: 'public/assets/images/Grab Food Logo.png',
 		link: 'grab-food',
 	},
 	{
-		title: 'GoFood',
 		picture: 'public/assets/images/GoFood Logo.png',
 		link: 'gofood',
 	},
 	{
-		title: 'Shopee Food',
 		picture: 'public/assets/images/Shopee Food Logo.png',
 		link: 'shopee-food',
 	},

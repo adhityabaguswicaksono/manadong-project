@@ -7,6 +7,7 @@ import {
 	Card,
 	CardBody,
 	Container,
+	Divider,
 	Grid,
 	Heading,
 	Image,
@@ -30,23 +31,22 @@ export default function OrderNow() {
 			<Container
 				maxWidth={'container.xl'}
 				gap={4}
-				paddingY={6}
+				paddingY={12}
 				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
 				<Box
 					display={'flex'}
 					flexDirection={'row'}
 					justifyContent={'start'}
 					alignItems={'center'}
-					gap={4}
-					minHeight={'0.5rem'}
+					gap={3}
+					height={'2.5rem'}
 					borderRadius={'lg'}
 					borderWidth={1}
 					borderColor={'manadong-blue.500'}>
 					<Link
 						as={NavLink}
 						to={-1}
-						paddingX={3}
-						borderRight={'1px solid #004687'}
+						paddingLeft={3}
 						_hover={{ textDecoration: 'none' }}>
 						<Box
 							display={'flex'}
@@ -61,6 +61,11 @@ export default function OrderNow() {
 							<Text>Back</Text>
 						</Box>
 					</Link>
+
+					<Divider
+						orientation={'vertical'}
+						height={'100%'}
+					/>
 
 					<Breadcrumb padding={{ base: 1, md: 2 }}>
 						{locationBreadcrumb.map((data, index) => {
@@ -103,7 +108,7 @@ export default function OrderNow() {
 					flexWrap={'wrap'}
 					justifyContent={'center'}
 					alignItems={'center'}
-					gap={4}>
+					gap={12}>
 					<Box>
 						<Heading
 							color={'manadong-blue.500'}
@@ -120,9 +125,11 @@ export default function OrderNow() {
 					<Grid
 						templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
 						width={'100%'}
-						gap={6}>
+						gap={8}>
 						{dataOrder.map((data) => (
-							<Card key={data.title}>
+							<Card
+								key={data.title}
+								boxShadow={0}>
 								<CardBody>
 									<Stack gap={4}>
 										<Box marginX={'auto'}>
@@ -131,11 +138,6 @@ export default function OrderNow() {
 												maxHeight={'150px'}
 											/>
 										</Box>
-										<Text
-											textAlign={'center'}
-											fontWeight={600}>
-											{data.title + ' '}
-										</Text>
 									</Stack>
 									<Box
 										display={'flex'}

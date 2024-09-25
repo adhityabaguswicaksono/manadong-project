@@ -7,3 +7,7 @@
 .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
     bottom: 0px !important;
 }
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #004687;
+}

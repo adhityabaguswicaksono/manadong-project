@@ -10,7 +10,7 @@ export default function Eatery() {
 			<Container
 				maxWidth={'container.xl'}
 				gap={4}
-				paddingY={6}
+				paddingY={12}
 				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
 				<Box
 					width={'100%'}

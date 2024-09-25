@@ -10,10 +10,12 @@ import {
 	Card,
 	CardBody,
 	Container,
+	Divider,
 	Grid,
 	Heading,
 	Image,
 	Link,
+	Stack,
 	Text,
 } from '@chakra-ui/react';
 import { dataLocations } from '../data';
@@ -30,23 +32,22 @@ export default function Outlet() {
 			<Container
 				maxWidth={'container.xl'}
 				gap={4}
-				paddingY={6}
+				paddingY={12}
 				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
 				<Box
 					display={'flex'}
 					flexDirection={'row'}
 					justifyContent={'start'}
 					alignItems={'center'}
-					gap={4}
-					minHeight={'0.5rem'}
+					gap={3}
+					height={'2.5rem'}
 					borderRadius={'lg'}
 					borderWidth={1}
 					borderColor={'manadong-blue.500'}>
 					<Link
 						as={NavLink}
 						to={-1}
-						paddingX={3}
-						borderRight={'1px solid #004687'}
+						paddingLeft={3}
 						_hover={{ textDecoration: 'none' }}>
 						<Box
 							display={'flex'}
@@ -62,7 +63,14 @@ export default function Outlet() {
 						</Box>
 					</Link>
 
-					<Breadcrumb padding={{ base: 1, md: 2 }}>
+					<Divider
+						orientation={'vertical'}
+						height={'100%'}
+					/>
+
+					<Breadcrumb
+						padding={{ base: 1, md: 2 }}
+						display={'flex'}>
 						{locationBreadcrumb.map((data, index) => {
 							let link = '';
 							for (let i = 0; i <= index; i++) {
@@ -88,7 +96,6 @@ export default function Outlet() {
 											.split('-')
 											.map((e) => e.charAt(0).toUpperCase() + e.slice(1))
 											.join(' ')}
-										{index === locationBreadcrumb.length - 1 ? ' Outlet' : ''}
 									</BreadcrumbLink>
 								</BreadcrumbItem>
 							);
@@ -103,7 +110,6 @@ export default function Outlet() {
 					flexDirection={'column'}
 					flexWrap={'wrap'}
 					justifyContent={'center'}
-					alignItems={'center'}
 					gap={4}>
 					<Box>
 						<Heading
@@ -125,40 +131,53 @@ export default function Outlet() {
 					<Grid
 						templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
 						gap={4}>
-						<Grid
-							templateColumns="repeat(1, 1fr)"
-							width={'100%'}
-							gap={2}>
+						<Stack
+							direction={'column'}
+							width={'100%'}>
 							{dataLocations.map((data) => (
-								<Card key={data.title}>
-									<CardBody>
-										<Box
-											display={'flex'}
-											flexDirection={{ base: 'column', md: 'row' }}
-											justifyContent={'space-between'}
-											alignItems={{ base: 'start', md: 'center' }}
-											gap={4}>
-											<Text fontWeight={600}>{data.title + ' '}</Text>
+								<>
+									<Card
+										key={data.title}
+										boxShadow={0}
+										size={'sm'}>
+										<CardBody
+											paddingX={0}
+											paddingY={2}>
+											<Box
+												display={'flex'}
+												flexDirection={{ base: 'column', md: 'row' }}
+												justifyContent={'space-between'}
+												alignItems={{ base: 'start', md: 'center' }}
+												gap={4}>
+												<Text fontWeight={600}>{data.title + ' '}</Text>
 
-											<Button
-												rightIcon={
-													<Image
-														src="/assets/images/Right Arrow.svg"
-														width={5}
-													/>
-												}
-												size={'sm'}
-												variant={'ghost'}
-												colorScheme={'manadong-red'}>
-												Purchase Here
-											</Button>
-										</Box>
-									</CardBody>
-								</Card>
+												<Button
+													rightIcon={
+														<Image
+															src="/assets/images/Right Arrow.svg"
+															width={5}
+														/>
+													}
+													size={'sm'}
+													variant={{ base: 'link', md: 'ghost' }}
+													colorScheme={'manadong-red'}>
+													Purchase Here
+												</Button>
+											</Box>
+										</CardBody>
+									</Card>
+									<Divider borderColor={'gray.300'} />
+								</>
 							))}
-						</Grid>
+						</Stack>
 
-						<Image src="/assets/images/HeaderImage.png"></Image>
+						<Box
+							backgroundImage={'url("/assets/images/HeaderImage.png")'}
+							backgroundPosition={'center'}
+							backgroundSize={'cover'}
+							width={'100%'}
+							height={{ base: '28rem', md: '100%' }}
+						/>
 					</Grid>
 				</Box>
 			</Container>

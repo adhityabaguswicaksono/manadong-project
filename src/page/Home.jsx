@@ -8,6 +8,7 @@ import {
 	Grid,
 	Heading,
 	Image,
+	Link,
 	Modal,
 	ModalBody,
 	ModalCloseButton,
@@ -47,7 +48,7 @@ export default function Home() {
 					paddingX={{ base: 0, md: 4 }}>
 					<Grid
 						gridAutoFlow={'dense'}
-						minHeight={'35rem'}
+						minHeight={'calc(100dvh - 5.5rem)'}
 						gridTemplateColumns={{ base: '1fr', md: '250px 1fr' }}
 						width={'100%'}
 						gap={{ base: 4, lg: 12 }}>
@@ -92,15 +93,14 @@ export default function Home() {
 						</Box>
 						<Box
 							display={{ base: 'none', md: 'block' }}
-							// position={'absolute'}
+							width={'80dvw'}
+							height={'100%'}
 							right={0}
 							top={0}
 							backgroundImage={"url('/assets/images/HeaderImage.png')"}
 							backgroundRepeat={'no-repeat'}
 							backgroundPosition={'center'}
 							backgroundSize={'cover'}
-							width={'calc(80dvw)'}
-							height={'100%'}
 						/>
 					</Grid>
 				</Container>
@@ -126,7 +126,7 @@ export default function Home() {
 
 					<Grid
 						templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }}
-						gap={4}>
+						gap={6}>
 						{dataMenu.map((data) => (
 							<ModalMenu
 								key={data.title}
@@ -136,6 +136,7 @@ export default function Home() {
 					</Grid>
 
 					<Box
+						marginTop={-3}
 						display={'flex'}
 						justifyContent={'center'}>
 						<NavLink
@@ -153,12 +154,14 @@ export default function Home() {
 			</Container>
 
 			{/* Promotion Section */}
-			<Box backgroundColor={'manadong-red.50'}>
+			<Box
+				backgroundColor={'manadong-red.50'}
+				paddingY={8}>
 				<Container maxWidth={'container.xl'}>
 					<Grid
 						gridTemplateColumns={{ base: '1fr', xl: '250px 1fr' }}
 						marginTop={{ base: 2, lg: 0 }}
-						paddingY={8}
+						gap={8}
 						alignItems={'center'}>
 						<Box>
 							<Heading
@@ -180,10 +183,12 @@ export default function Home() {
 								md: 'repeat(3, 1fr)',
 							}}
 							gap={4}
-							marginTop={{ base: 4, xl: 0 }}
 							justifyContent={{ base: 'start', xl: 'end' }}>
 							{dataPromotion.map((data) => (
-								<Card key={data.title}>
+								<Card
+									key={data.title}
+									borderWidth={1}
+									borderColor={'grey.200'}>
 									<CardBody>
 										<Stack gap={4}>
 											<Image
@@ -248,7 +253,10 @@ export default function Home() {
 						style={{ padding: '0.25rem', marginTop: '1.5rem' }}>
 						{dataReviews.map((data) => (
 							<SwiperSlide key={data.title}>
-								<Card position={'relative'}>
+								<Card
+									borderWidth={1}
+									borderColor={'grey.200'}
+									position={'relative'}>
 									<Image
 										position={'absolute'}
 										src="assets/images/Quotes Icon.svg"
@@ -303,45 +311,61 @@ export default function Home() {
 						templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
 						gap={4}>
 						{dataLocations.map((data) => (
-							<Card key={data.title}>
-								<CardBody>
+							<Card
+								key={data.title}
+								borderWidth={1}
+								borderColor={'grey.200'}>
+								<CardBody
+									display={'flex'}
+									alignItems={'center'}
+									gap={4}>
 									<Box
+										maxWidth={14}
+										padding={4}
+										borderRadius={'lg'}
+										backgroundColor={'manadong-red.50'}
 										display={'flex'}
-										alignItems={'center'}
-										gap={4}>
-										<Box
-											width={20}
-											height={16}
-											padding={4}
-											borderRadius={'lg'}
-											backgroundColor={'manadong-red.50'}
-											display={'flex'}
-											justifyContent={'center'}>
-											<Image src="assets/images/Pin Location Icon.svg" />
-										</Box>
-										<Box>
-											<Text
-												color={'manadong-blue.500'}
-												fontSize={'larger'}
-												fontWeight={600}
-												marginBottom={2}>
-												{data.title}
-											</Text>
-											<Text>{data.description}</Text>
-											<Button
-												colorScheme={'manadong-red'}
-												variant={'link'}
-												leftIcon={
-													<Image
-														src="assets/images/Navigate Icon.svg"
-														width={5}
-													/>
-												}
-												marginTop={4}
-												textDecoration={'underline'}>
-												View Map
-											</Button>
-										</Box>
+										justifyContent={'center'}>
+										<Image src="assets/images/Pin Location Icon.svg" />
+									</Box>
+									<Box>
+										<Text
+											color={'manadong-blue.500'}
+											fontSize={'larger'}
+											fontWeight={600}
+											marginBottom={2}>
+											{data.title}
+										</Text>
+										<Text
+											textOverflow={'ellipsis'}
+											style={{
+												display: '-webkit-box',
+												WebkitBoxOrient: 'vertical',
+												WebkitLineClamp: 2,
+												overflow: 'hidden',
+											}}>
+											{data.description} Lorem ipsum dolor sit amet consectetur
+											adipisicing elit. Voluptas nisi optio et laudantium
+											pariatur quam asperiores quod vitae quasi! Illo eos
+											repellendus cum autem! Saepe sit reiciendis voluptatem
+											officia minus!
+										</Text>
+
+										<Button
+											colorScheme={'manadong-red'}
+											variant={'link'}
+											marginTop={4}
+											textDecoration={'underline'}>
+											<Image
+												src="assets/images/Navigate Icon.svg"
+												height={4}
+												borderBottom={'2px solid'}
+												borderColor={'manadong-red.500'}
+												paddingRight={3}
+												marginRight={-1}
+											/>
+											View Map
+										</Button>
 									</Box>
 								</CardBody>
 							</Card>
@@ -362,8 +386,9 @@ function ModalMenu({ data }) {
 		<>
 			<Card
 				onClick={onOpen}
-				cursor={'pointer'}>
-				<CardBody>
+				cursor={'pointer'}
+				boxShadow={'0'}>
+				<CardBody padding={0}>
 					<Stack gap={4}>
 						<Image
 							src={data.picture}

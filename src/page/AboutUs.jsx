@@ -17,7 +17,7 @@ export default function AboutUs() {
 
 			<Container
 				maxWidth={'container.xl'}
-				paddingY={6}
+				paddingY={12}
 				gap={4}
 				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
 				<Box

@@ -37,7 +37,7 @@ export default function NavigationBar() {
 
 				<Box
 					display={{ base: 'none', md: 'flex' }}
-					gap={4}>
+					gap={8}>
 					<Link
 						as={NavLink}
 						to={'/'}

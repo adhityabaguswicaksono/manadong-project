@@ -19,7 +19,7 @@ export default function FooterBar() {
 			color={'white'}>
 			<Container maxWidth={'container.xl'}>
 				<Grid
-					gap={8}
+					gap={{ base: 8, md: 32 }}
 					width={'100%'}
 					gridTemplateColumns={{
 						base: 'repeat(1, 1fr)',
@@ -33,53 +33,68 @@ export default function FooterBar() {
 						<Text>Copyright &copy; 2024 PT Bogadong Anugerah Indonesia</Text>
 					</Stack>
 
-					<Stack gap={4}>
+					<Stack gap={{ base: 4, md: 8 }}>
 						<Text fontWeight={800}>Contact Us</Text>
-						<Stack gap={2}>
-							<Text>
-								<strong>Email</strong>: <u>manadong@gmail.com</u>
-							</Text>
-							<Text>
-								<strong>Telp</strong>: <u>+62-911-1009-115</u>
-							</Text>
-						</Stack>
-						<Stack
-							alignSelf={{ base: 'start', md: 'center' }}
-							gap={4}
-							direction={'row'}>
-							<Image
-								src="/assets/images/Facebook Logo.svg"
-								width={6}
-							/>
-							<Image
-								src="/assets/images/Instagram Logo.svg"
-								width={6}
-							/>
-							<Image
-								src="/assets/images/Whatsapp Logo.svg"
-								width={6}
-							/>
+
+						<Stack gap={5}>
+							<Stack gap={4}>
+								<Text>
+									<strong style={{ display: 'inline-block', width: '4rem' }}>
+										Email
+									</strong>
+									: <u style={{ cursor: 'pointer' }}>manadong@gmail.com</u>
+								</Text>
+								<Text>
+									<strong style={{ display: 'inline-block', width: '4rem' }}>
+										Telp
+									</strong>
+									: <u style={{ cursor: 'pointer' }}>+62-911-1009-115</u>
+								</Text>
+							</Stack>
+							<Stack
+								alignSelf={{ base: 'start', md: 'center' }}
+								gap={4}
+								direction={'row'}>
+								<Image
+									src="/assets/images/Facebook Logo.svg"
+									width={6}
+									cursor={'pointer'}
+								/>
+								<Image
+									src="/assets/images/Instagram Logo.svg"
+									width={6}
+									cursor={'pointer'}
+								/>
+								<Image
+									src="/assets/images/Whatsapp Logo.svg"
+									width={6}
+									cursor={'pointer'}
+								/>
+							</Stack>
 						</Stack>
 					</Stack>
-					<Stack gap={4}>
+					<Stack gap={{ base: 4, md: 8 }}>
 						<Text fontWeight={800}>Available On</Text>
 
 						<Stack
-							gap={2}
+							gap={{ base: 2, md: 4 }}
 							direction={'column'}>
 							<Link
 								as={NavLink}
-								to={'/order-now/grab-food'}>
+								to={'/order-now/grab-food'}
+								width={'fit-content'}>
 								<u>Grab Food</u>
 							</Link>
 							<Link
 								as={NavLink}
-								to={'/order-now/gofood'}>
+								to={'/order-now/gofood'}
+								width={'fit-content'}>
 								<u>GoFood</u>
 							</Link>
 							<Link
 								as={NavLink}
-								to={'/order-now/shopee-food'}>
+								to={'/order-now/shopee-food'}
+								width={'fit-content'}>
 								<u>Shopee Food</u>
 							</Link>
 						</Stack>
