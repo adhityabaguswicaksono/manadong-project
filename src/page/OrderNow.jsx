@@ -7,7 +7,7 @@ import {
 	Card,
 	CardBody,
 	Container,
-	Divider,
+	Flex,
 	Grid,
 	Heading,
 	Image,
@@ -29,45 +29,65 @@ export default function OrderNow() {
 			<NavigationBar />
 
 			<Container
+				as={Stack}
 				maxWidth={'container.xl'}
-				gap={4}
-				paddingY={12}
-				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
+				gap={'32px'}
+				paddingY={'48px'}
+				minHeight={'calc(100dvh - 84.82px - 224px)'}>
 				<Box
 					display={'flex'}
 					flexDirection={'row'}
 					justifyContent={'start'}
-					alignItems={'center'}
-					gap={3}
-					height={'2.5rem'}
-					borderRadius={'lg'}
-					borderWidth={1}
-					borderColor={'manadong-blue.500'}>
+					alignItems={'center'}>
 					<Link
 						as={NavLink}
 						to={-1}
-						paddingLeft={3}
+						display={'flex'}
+						flexDirection={'row'}
+						justifyContent={'center'}
+						alignItems={'center'}
+						gap={'4px'}
+						height={'36px'}
+						borderRadius={'8px 0px 0px 8px'}
+						borderWidth={1}
+						borderColor={'manadong-blue.100'}
+						padding={'8px 16px 8px 16px'}
 						_hover={{ textDecoration: 'none' }}>
-						<Box
-							display={'flex'}
-							flexWrap={'nowrap'}
-							gap={2}
-							color={'manadong-red.500'}
-							padding={{ base: 1, md: 2 }}>
-							<Image
-								src="/assets/images/Back Arrow.svg"
-								width={5}
-							/>
-							<Text>Back</Text>
-						</Box>
+						<Image
+							src="/assets/images/Back Arrow.svg"
+							width={'16px'}
+						/>
+						<Text
+							fontWeight={400}
+							fontSize={'14px'}
+							lineHeight={'20px'}
+							color={'manadong-red.500'}>
+							Back
+						</Text>
 					</Link>
 
-					<Divider
-						orientation={'vertical'}
-						height={'100%'}
-					/>
-
-					<Breadcrumb padding={{ base: 1, md: 2 }}>
+					<Breadcrumb
+						width={'100%'}
+						display={'flex'}
+						flexDirection={'row'}
+						justifyContent={'start'}
+						alignItems={'center'}
+						gap={'4px'}
+						height={'36px'}
+						borderRadius={'0px 8px 8px 0px'}
+						borderWidth={1}
+						borderColor={'manadong-blue.100'}
+						borderLeft={0}
+						padding={'8px 16px 8px 16px'}
+						separator={
+							<Text
+								color={'#B5B5B5'}
+								fontWeight={400}
+								fontSize={'14px'}
+								lineHeight={'20px'}>
+								/
+							</Text>
+						}>
 						{locationBreadcrumb.map((data, index) => {
 							let link = '';
 							for (let i = 0; i <= index; i++) {
@@ -87,6 +107,9 @@ export default function OrderNow() {
 										to={link}
 										end
 										color={'manadong-blue.500'}
+										fontWeight={400}
+										fontSize={'14px'}
+										lineHeight={'20px'}
 										_activeLink={{ color: 'black' }}>
 										{index === 0 ? 'Home' : ''}
 										{data
@@ -100,60 +123,64 @@ export default function OrderNow() {
 					</Breadcrumb>
 				</Box>
 
-				<Box
-					width={'100%'}
-					paddingTop={8}
-					display={'flex'}
+				<Flex
 					flexDirection={'column'}
-					flexWrap={'wrap'}
-					justifyContent={'center'}
-					alignItems={'center'}
-					gap={12}>
-					<Box>
+					alignItems={'center'}>
+					<Stack gap={0}>
 						<Heading
 							color={'manadong-blue.500'}
-							paddingY={2}>
-							Order Now On:
+							fontSize={'28px'}
+							lineHeight={'40px'}
+							fontWeight={600}>
+							Order Now On :
 						</Heading>
 						<Box
-							height={1}
-							width={'100px'}
+							height={'3px'}
+							width={'52px'}
 							backgroundColor={'manadong-red.500'}
-							borderRadius={2}></Box>
-					</Box>
+							borderRadius={'8px'}></Box>
+					</Stack>
+				</Flex>
 
-					<Grid
-						templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
-						width={'100%'}
-						gap={8}>
-						{dataOrder.map((data) => (
-							<Card
-								key={data.title}
-								boxShadow={0}>
-								<CardBody>
-									<Stack gap={4}>
-										<Box marginX={'auto'}>
-											<Image
-												src={data.picture}
-												maxHeight={'150px'}
-											/>
-										</Box>
-									</Stack>
-									<Box
-										display={'flex'}
-										justifyContent={'center'}
-										marginTop={8}>
-										<NavLink
-											to={location + '/' + data.link}
-											end>
-											<Button colorScheme={'manadong-blue'}>Order Now</Button>
-										</NavLink>
+				<Grid
+					templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
+					width={'100%'}
+					gap={8}>
+					{dataOrder.map((data) => (
+						<Card
+							key={data.title}
+							boxShadow={0}>
+							<CardBody>
+								<Stack gap={4}>
+									<Box marginX={'auto'}>
+										<Image
+											src={data.picture}
+											maxHeight={'150px'}
+										/>
 									</Box>
-								</CardBody>
-							</Card>
-						))}
-					</Grid>
-				</Box>
+								</Stack>
+								<Box
+									display={'flex'}
+									justifyContent={'center'}
+									marginTop={8}>
+									<NavLink
+										to={location + '/' + data.link}
+										end>
+										<Button
+											colorScheme={'manadong-blue'}
+											fontWeight={600}
+											fontSize={'16px'}
+											lineHeight={'24px'}
+											padding={'9px 12px'}
+											borderRadius={'8px'}>
+											Order Now
+										</Button>
+									</NavLink>
+								</Box>
+							</CardBody>
+						</Card>
+					))}
+				</Grid>
 			</Container>
 			<FooterBar />
 		</>

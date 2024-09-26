@@ -15,8 +15,8 @@ export default function NavigationBar() {
 	return (
 		<Box
 			width={'100%'}
-			height={'5.5rem'}
-			paddingY={4}
+			height={'84.82px'}
+			paddingY={'16px'}
 			backgroundColor={'manadong-blue.500'}
 			color={'white'}
 			display={'flex'}
@@ -32,42 +32,53 @@ export default function NavigationBar() {
 				<Link
 					as={NavLink}
 					to={'/'}>
-					<Image src="/assets/images/manadong-logo.svg" />
+					<Image
+						src="/assets/images/manadong-logo.svg"
+						width={'100px'}
+					/>
 				</Link>
 
 				<Box
 					display={{ base: 'none', md: 'flex' }}
-					gap={8}>
+					gap={'8px'}>
 					<Link
 						as={NavLink}
 						to={'/'}
-						end
+						padding={'8px'}
 						_hover={{ textDecoration: 'none' }}
-						_activeLink={{ color: 'manadong-red.100' }}>
+						_activeLink={{ color: 'manadong-red.100' }}
+						fontWeight={600}
+						fontSize={'14px'}>
 						Home
 					</Link>
 					<Link
 						as={NavLink}
 						to={'/eatery'}
-						end
+						padding={'8px'}
 						_hover={{ textDecoration: 'none' }}
-						_activeLink={{ color: 'manadong-red.100' }}>
+						_activeLink={{ color: 'manadong-red.100' }}
+						fontWeight={600}
+						fontSize={'14px'}>
 						Eatery
 					</Link>
 					<Link
 						as={NavLink}
 						to={'/news'}
-						end
+						padding={'8px'}
 						_hover={{ textDecoration: 'none' }}
-						_activeLink={{ color: 'manadong-red.100' }}>
+						_activeLink={{ color: 'manadong-red.100' }}
+						fontWeight={600}
+						fontSize={'14px'}>
 						News
 					</Link>
 					<Link
 						as={NavLink}
 						to={'/about-us'}
-						end
+						padding={'8px'}
 						_hover={{ textDecoration: 'none' }}
-						_activeLink={{ color: 'manadong-red.100' }}>
+						_activeLink={{ color: 'manadong-red.100' }}
+						fontWeight={600}
+						fontSize={'14px'}>
 						About Us
 					</Link>
 				</Box>

@@ -5,6 +5,7 @@ import {
 	Card,
 	CardBody,
 	Container,
+	Flex,
 	Grid,
 	Heading,
 	Image,
@@ -48,7 +49,7 @@ export default function Home() {
 					paddingX={{ base: 0, md: 4 }}>
 					<Grid
 						gridAutoFlow={'dense'}
-						minHeight={'calc(100dvh - 5.5rem)'}
+						minHeight={'685.48px'}
 						gridTemplateColumns={{ base: '1fr', md: '250px 1fr' }}
 						width={'100%'}
 						gap={{ base: 4, lg: 12 }}>
@@ -62,35 +63,45 @@ export default function Home() {
 							maxW={'1000px'}
 							height={{ base: '400px', md: '500px' }}
 						/>
-						<Box
+						<Grid
 							width={{ base: '100%', lg: 'fit-content' }}
+							gridTemplateColumns={'1fr'}
+							gap={'24px'}
 							color={'black'}
 							alignSelf={'center'}
 							paddingBottom={{ base: 12, md: 0 }}
 							paddingX={{ base: 4, md: 0 }}>
-							<Heading
-								color={'manadong-red.500'}
-								paddingY={2}>
-								Manadong
-							</Heading>
-							<Text>is Manado dish with a spicy and appetizing flavour.</Text>
+							<Stack gap={0}>
+								<Heading
+									color={'manadong-red.500'}
+									paddingY={2}
+									fontSize={'32px'}
+									fontWeight={600}>
+									Manadong
+								</Heading>
+								<Text fontSize={'18px'}>
+									is Manado dish with a spicy and appetizing flavour.
+								</Text>
+							</Stack>
 							<Text
-								paddingY={6}
-								fontWeight={600}
 								color={'manadong-red.500'}
-								fontSize={'large'}>
+								fontSize={'large'}
+								size={'20px'}>
 								#NikmatnyaNggakPakeRibet
 							</Text>
-							<NavLink
+							<Link
+								as={NavLink}
 								to={'/order-now'}
-								end>
+								width={'fit-content'}>
 								<Button
 									variant={'outline'}
-									colorScheme="manadong-blue">
+									colorScheme="manadong-blue"
+									paddingX={'12px'}
+									paddingY={'9px'}>
 									Order Now
 								</Button>
-							</NavLink>
-						</Box>
+							</Link>
+						</Grid>
 						<Box
 							display={{ base: 'none', md: 'block' }}
 							width={'80dvw'}
@@ -109,24 +120,26 @@ export default function Home() {
 			{/* Our Menu Section */}
 			<Container maxWidth={'container.xl'}>
 				<Stack
-					gap={8}
-					paddingY={8}>
+					gap={'32px'}
+					paddingY={'48px'}>
 					<Box>
 						<Heading
 							color={'manadong-blue.500'}
-							paddingY={2}>
+							fontSize={'28px'}
+							lineHeight={'40px'}
+							fontWeight={600}>
 							Our Menu
 						</Heading>
 						<Box
-							height={1}
-							width={'100px'}
+							height={'3px'}
+							width={'52px'}
 							backgroundColor={'manadong-red.500'}
-							borderRadius={2}></Box>
+							borderRadius={'8px'}></Box>
 					</Box>
 
 					<Grid
 						templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }}
-						gap={6}>
+						gap={'24px'}>
 						{dataMenu.map((data) => (
 							<ModalMenu
 								key={data.title}
@@ -136,19 +149,21 @@ export default function Home() {
 					</Grid>
 
 					<Box
-						marginTop={-3}
 						display={'flex'}
 						justifyContent={'center'}>
-						<NavLink
+						<Link
+							as={NavLink}
 							to={'/order-now'}
-							end>
+							width={'fit-content'}>
 							<Button
-								width={'fit-content'}
 								variant={'outline'}
-								colorScheme={'manadong-blue'}>
+								colorScheme="manadong-blue"
+								paddingX={'12px'}
+								paddingY={'9px'}
+								fontWeight={600}>
 								Order Now
 							</Button>
-						</NavLink>
+						</Link>
 					</Box>
 				</Stack>
 			</Container>
@@ -156,7 +171,7 @@ export default function Home() {
 			{/* Promotion Section */}
 			<Box
 				backgroundColor={'manadong-red.50'}
-				paddingY={8}>
+				paddingY={'48px'}>
 				<Container maxWidth={'container.xl'}>
 					<Grid
 						gridTemplateColumns={{ base: '1fr', xl: '250px 1fr' }}
@@ -166,14 +181,16 @@ export default function Home() {
 						<Box>
 							<Heading
 								color={'manadong-blue.500'}
-								paddingY={2}>
+								fontSize={'28px'}
+								lineHeight={'40px'}
+								fontWeight={600}>
 								Promotion
 							</Heading>
 							<Box
-								height={1}
-								width={'100px'}
+								height={'3px'}
+								width={'52px'}
 								backgroundColor={'manadong-red.500'}
-								borderRadius={2}></Box>
+								borderRadius={'8px'}></Box>
 						</Box>
 
 						<Grid
@@ -182,26 +199,38 @@ export default function Home() {
 								base: 'repeat(2, 1fr)',
 								md: 'repeat(3, 1fr)',
 							}}
-							gap={4}
+							gap={'24px'}
 							justifyContent={{ base: 'start', xl: 'end' }}>
 							{dataPromotion.map((data) => (
 								<Card
 									key={data.title}
-									borderWidth={1}
-									borderColor={'grey.200'}>
-									<CardBody>
-										<Stack gap={4}>
+									outline={'1px solid #D5D5D54D'}
+									boxShadow={'0px 2px 4px 0px #0000001F'}
+									height={'fit-content'}
+									borderRadius={'8px'}>
+									<CardBody padding={0}>
+										<Stack>
 											<Image
 												src={data.picture}
 												borderRadius="lg"
 											/>
-											<Text
-												color={'manadong-blue.500'}
-												fontSize={'x-large'}
-												fontWeight={800}>
-												{data.title}
-											</Text>
-											<Text>{data.description}</Text>
+											<Stack
+												gap={'4px'}
+												padding={'24px'}>
+												<Text
+													color={'manadong-blue.500'}
+													fontSize={'18px'}
+													fontWeight={600}
+													lineHeight={'26px'}>
+													{data.title}
+												</Text>
+												<Text
+													fontWeight={400}
+													fontSize={'14px'}
+													lineHeight={'20px'}>
+													{data.description}
+												</Text>
+											</Stack>
 										</Stack>
 									</CardBody>
 								</Card>
@@ -216,23 +245,25 @@ export default function Home() {
 				<Container
 					maxWidth={'container.xl'}
 					gap={8}
-					paddingY={8}>
+					paddingY={'48px'}>
 					<Box>
 						<Heading
 							color={'manadong-blue.500'}
-							paddingY={2}>
+							fontSize={'28px'}
+							lineHeight={'40px'}
+							fontWeight={600}>
 							Reviews
 						</Heading>
 						<Box
-							height={1}
-							width={'100px'}
+							height={'3px'}
+							width={'52px'}
 							backgroundColor={'manadong-red.500'}
-							borderRadius={2}></Box>
+							borderRadius={'8px'}></Box>
 					</Box>
 
 					<Swiper
 						modules={[Pagination, Autoplay]}
-						spaceBetween={12}
+						spaceBetween={'24px'}
 						pagination={{ clickable: true }}
 						loop={true}
 						autoplay={{
@@ -254,29 +285,39 @@ export default function Home() {
 						{dataReviews.map((data) => (
 							<SwiperSlide key={data.title}>
 								<Card
-									borderWidth={1}
-									borderColor={'grey.200'}
-									position={'relative'}>
+									position={'relative'}
+									borderRadius={'8px'}
+									outline={'1px solid #D5D5D5'}
+									boxShadow={'0px 2px 4px 0px #0000001F'}>
 									<Image
 										position={'absolute'}
 										src="assets/images/Quotes Icon.svg"
-										width={8}
+										width={'24px'}
 										top={2}
 										left={2}></Image>
-									<CardBody padding={12}>
+									<CardBody
+										padding={12}
+										display={'flex'}
+										flexDirection={'column'}
+										gap={'12px'}>
 										<Text
 											color={'manadong-blue.500'}
-											fontSize={'larger'}
-											fontWeight={600}
-											marginBottom={2}>
+											fontSize={'14px'}
+											lineHeight={'20px'}
+											fontWeight={600}>
 											{data.title}
 										</Text>
-										<Text>{data.description}</Text>
+										<Text
+											fontWeight={500}
+											fontSize={'14px'}
+											lineHeight={'20px'}>
+											{data.description}
+										</Text>
 									</CardBody>
 									<Image
 										position={'absolute'}
 										src="assets/images/Quotes Icon.svg"
-										width={8}
+										width={'24px'}
 										bottom={2}
 										right={2}
 										transform={'rotate(180deg)'}></Image>
@@ -287,85 +328,106 @@ export default function Home() {
 				</Container>
 			</Box>
 
+			{/* Locations Section */}
 			<Container maxWidth={'container.xl'}>
 				<Box
-					paddingY={8}
+					paddingY={'48px'}
 					display={'flex'}
 					flexDirection={'column'}
 					flexWrap={'wrap'}
-					gap={4}>
+					gap={'32px'}>
 					<Box>
 						<Heading
 							color={'manadong-blue.500'}
-							paddingY={2}>
+							fontSize={'28px'}
+							lineHeight={'40px'}
+							fontWeight={600}>
 							Locations
 						</Heading>
 						<Box
-							height={1}
-							width={'100px'}
+							height={'3px'}
+							width={'52px'}
 							backgroundColor={'manadong-red.500'}
-							borderRadius={2}></Box>
+							borderRadius={'8px'}></Box>
 					</Box>
 
 					<Grid
 						templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' }}
-						gap={4}>
+						gap={'24px'}>
 						{dataLocations.map((data) => (
 							<Card
 								key={data.title}
-								borderWidth={1}
-								borderColor={'grey.200'}>
+								borderRadius={'8px'}
+								outline={'1px solid #D5D5D5'}
+								boxShadow={'0px 2px 4px 0px #0000001F'}>
 								<CardBody
 									display={'flex'}
 									alignItems={'center'}
-									gap={4}>
+									gap={'24px'}>
 									<Box
-										maxWidth={14}
-										padding={4}
-										borderRadius={'lg'}
+										maxWidth={'44px'}
+										maxHeight={'44px'}
+										padding={'10px'}
+										borderRadius={'8px'}
 										backgroundColor={'manadong-red.50'}
 										display={'flex'}
 										justifyContent={'center'}>
 										<Image src="assets/images/Pin Location Icon.svg" />
 									</Box>
-									<Box>
-										<Text
-											color={'manadong-blue.500'}
-											fontSize={'larger'}
-											fontWeight={600}
-											marginBottom={2}>
-											{data.title}
-										</Text>
-										<Text
-											textOverflow={'ellipsis'}
-											style={{
-												display: '-webkit-box',
-												WebkitBoxOrient: 'vertical',
-												WebkitLineClamp: 2,
-												overflow: 'hidden',
-											}}>
-											{data.description} Lorem ipsum dolor sit amet consectetur
-											adipisicing elit. Voluptas nisi optio et laudantium
-											pariatur quam asperiores quod vitae quasi! Illo eos
-											repellendus cum autem! Saepe sit reiciendis voluptatem
-											officia minus!
-										</Text>
+									<Box
+										width={'100%'}
+										display={'flex'}
+										flexDirection={'column'}
+										gap={'12px'}>
+										<Box
+											width={'100%'}
+											display={'flex'}
+											flexDirection={'column'}
+											gap={'4px'}>
+											<Text
+												color={'manadong-blue.500'}
+												fontSize={'18px'}
+												fontWeight={600}>
+												{data.title}
+											</Text>
+											<Text
+												fontWeight={400}
+												fontSize={'12px'}
+												lineHeight={'18px'}
+												textOverflow={'ellipsis'}
+												style={{
+													display: '-webkit-box',
+													WebkitBoxOrient: 'vertical',
+													WebkitLineClamp: 2,
+													overflow: 'hidden',
+												}}>
+												{data.description}
+											</Text>
+										</Box>
 
-										<Button
-											colorScheme={'manadong-red'}
-											variant={'link'}
-											marginTop={4}
-											textDecoration={'underline'}>
-											<Image
-												src="assets/images/Navigate Icon.svg"
-												height={4}
+										<Link
+											as={NavLink}
+											width={'fit-content'}>
+											<Button
+												colorScheme={'manadong-red'}
+												variant={'link'}
+												marginTop={4}
 												borderBottom={'2px solid'}
 												borderColor={'manadong-red.500'}
-												paddingRight={3}
-												marginRight={-1}
-											/>
-											View Map
-										</Button>
+												borderRadius={0}
+												fontSize={'14px'}
+												width={'fit-content'}
+												margin={0}
+												_hover={{ textDecoration: 'none' }}>
+												<Image
+													src="assets/images/Navigate Icon.svg"
+													height={'16px'}
+													paddingRight={3}
+													marginRight={-1}
+												/>
+												View Map
+											</Button>
+										</Link>
 									</Box>
 								</CardBody>
 							</Card>
@@ -387,27 +449,44 @@ function ModalMenu({ data }) {
 			<Card
 				onClick={onOpen}
 				cursor={'pointer'}
-				boxShadow={'0'}>
+				boxShadow={'0'}
+				borderRadius={'8px'}>
 				<CardBody padding={0}>
-					<Stack gap={4}>
+					<Stack gap={'12px'}>
 						<Image
 							src={data.picture}
 							borderRadius="lg"
 						/>
-						<Text
-							textAlign={'center'}
-							fontWeight={600}>
-							{data.title + ' '}
+						<Flex
+							flexDirection={'row'}
+							gap={'4px'}
+							flexWrap={'wrap'}
+							justifyContent={'center'}
+							alignItems={'center'}>
+							<Text
+								textAlign={'center'}
+								fontWeight={600}
+								fontSize={'18px'}>
+								{data.title + ' '}
+							</Text>
 							{data.isNew ? (
 								<Badge
 									variant={'outline'}
-									colorScheme={'manadong-red'}>
+									colorScheme={'manadong-red'}
+									width={'fit-content'}
+									fontWeight={'700'}
+									boxShadow={0}
+									borderWidth={'2px'}
+									borderColor={'manadong-red.500'}
+									borderRadius={'4px'}
+									paddingX={0}
+									fontSize={'8px'}>
 									New
 								</Badge>
 							) : (
 								''
 							)}
-						</Text>
+						</Flex>
 					</Stack>
 				</CardBody>
 			</Card>
@@ -417,7 +496,7 @@ function ModalMenu({ data }) {
 				onClose={onClose}
 				isCentered>
 				<ModalOverlay />
-				<ModalContent borderRadius={'xl'}>
+				<ModalContent borderRadius={'8px'}>
 					<ModalCloseButton
 						backgroundColor={'white'}
 						size={'lg'}
@@ -425,32 +504,56 @@ function ModalMenu({ data }) {
 					/>
 					<ModalBody padding={0}>
 						<Stack>
-							<Image
-								src={data.picture}
-								alt="Green double couch with wooden legs"
-								borderRadius="lg"
-							/>
+							<Image src={data.picture} />
 
 							<Stack
 								direction={'column'}
-								padding={4}>
-								<Text
-									fontWeight={700}
-									fontSize={'x-large'}
-									color={'manadong-blue.500'}>
-									{data.title + ' '}
+								padding={'24px'}
+								gap={'8px'}>
+								<Flex
+									flexDirection={'row'}
+									gap={'4px'}
+									flexWrap={'wrap'}
+									justifyContent={'start'}
+									alignItems={'center'}>
+									<Text
+										color={'manadong-blue.500'}
+										textAlign={'center'}
+										fontWeight={600}
+										fontSize={'24px'}>
+										{data.title + ' '}
+									</Text>
 									{data.isNew ? (
 										<Badge
 											variant={'outline'}
-											colorScheme={'manadong-red'}>
+											colorScheme={'manadong-red'}
+											width={'fit-content'}
+											fontWeight={'700'}
+											boxShadow={0}
+											borderWidth={'2px'}
+											borderColor={'manadong-red.500'}
+											borderRadius={'4px'}
+											paddingX={0}
+											fontSize={'8px'}>
 											New
 										</Badge>
 									) : (
 										''
 									)}
+								</Flex>
+								<Text
+									fontWeight={400}
+									fontSize={'18px'}
+									lineHeight={'26px'}>
+									{data.description}
 								</Text>
-								<Text>{data.description}</Text>
-								<Text color={'manadong-red.500'}>{data.price}</Text>
+								<Text
+									color={'manadong-red.500'}
+									fontWeight={500}
+									fontSize={'18px'}
+									lineHeight={'26px'}>
+									{data.price}
+								</Text>
 							</Stack>
 						</Stack>
 					</ModalBody>

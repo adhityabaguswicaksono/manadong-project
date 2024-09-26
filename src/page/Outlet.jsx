@@ -11,6 +11,7 @@ import {
 	CardBody,
 	Container,
 	Divider,
+	Flex,
 	Grid,
 	Heading,
 	Image,
@@ -30,47 +31,65 @@ export default function Outlet() {
 			<NavigationBar />
 
 			<Container
+				as={Stack}
 				maxWidth={'container.xl'}
-				gap={4}
-				paddingY={12}
-				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
+				gap={'32px'}
+				paddingY={'48px'}
+				minHeight={'calc(100dvh - 84.82px - 224px)'}>
 				<Box
 					display={'flex'}
 					flexDirection={'row'}
 					justifyContent={'start'}
-					alignItems={'center'}
-					gap={3}
-					height={'2.5rem'}
-					borderRadius={'lg'}
-					borderWidth={1}
-					borderColor={'manadong-blue.500'}>
+					alignItems={'center'}>
 					<Link
 						as={NavLink}
 						to={-1}
-						paddingLeft={3}
+						display={'flex'}
+						flexDirection={'row'}
+						justifyContent={'center'}
+						alignItems={'center'}
+						gap={'4px'}
+						height={'36px'}
+						borderRadius={'8px 0px 0px 8px'}
+						borderWidth={1}
+						borderColor={'manadong-blue.100'}
+						padding={'8px 16px 8px 16px'}
 						_hover={{ textDecoration: 'none' }}>
-						<Box
-							display={'flex'}
-							flexWrap={'nowrap'}
-							gap={2}
-							color={'manadong-red.500'}
-							padding={{ base: 1, md: 2 }}>
-							<Image
-								src="/assets/images/Back Arrow.svg"
-								width={5}
-							/>
-							<Text>Back</Text>
-						</Box>
+						<Image
+							src="/assets/images/Back Arrow.svg"
+							width={'16px'}
+						/>
+						<Text
+							fontWeight={400}
+							fontSize={'14px'}
+							lineHeight={'20px'}
+							color={'manadong-red.500'}>
+							Back
+						</Text>
 					</Link>
 
-					<Divider
-						orientation={'vertical'}
-						height={'100%'}
-					/>
-
 					<Breadcrumb
-						padding={{ base: 1, md: 2 }}
-						display={'flex'}>
+						width={'100%'}
+						display={'flex'}
+						flexDirection={'row'}
+						justifyContent={'start'}
+						alignItems={'center'}
+						gap={'4px'}
+						height={'36px'}
+						borderRadius={'0px 8px 8px 0px'}
+						borderWidth={1}
+						borderColor={'manadong-blue.100'}
+						borderLeft={0}
+						padding={'8px 16px 8px 16px'}
+						separator={
+							<Text
+								color={'#B5B5B5'}
+								fontWeight={400}
+								fontSize={'14px'}
+								lineHeight={'20px'}>
+								/
+							</Text>
+						}>
 						{locationBreadcrumb.map((data, index) => {
 							let link = '';
 							for (let i = 0; i <= index; i++) {
@@ -89,6 +108,9 @@ export default function Outlet() {
 										as={NavLink}
 										to={link}
 										end
+										fontWeight={400}
+										fontSize={'14px'}
+										lineHeight={'20px'}
 										color={'manadong-blue.500'}
 										_activeLink={{ color: 'black' }}>
 										{index === 0 ? 'Home' : ''}
@@ -103,18 +125,15 @@ export default function Outlet() {
 					</Breadcrumb>
 				</Box>
 
-				<Box
-					width={'100%'}
-					paddingTop={8}
-					display={'flex'}
+				<Flex
 					flexDirection={'column'}
-					flexWrap={'wrap'}
-					justifyContent={'center'}
-					gap={4}>
-					<Box>
+					alignItems={'start'}>
+					<Stack gap={0}>
 						<Heading
 							color={'manadong-blue.500'}
-							paddingY={2}>
+							fontSize={'28px'}
+							lineHeight={'40px'}
+							fontWeight={600}>
 							{locationData
 								.split('-')
 								.map((e) => e.charAt(0).toUpperCase() + e.slice(1))
@@ -122,64 +141,74 @@ export default function Outlet() {
 							Outlet
 						</Heading>
 						<Box
-							height={1}
-							width={'100px'}
+							height={'3px'}
+							width={'52px'}
 							backgroundColor={'manadong-red.500'}
-							borderRadius={2}></Box>
-					</Box>
+							borderRadius={'8px'}></Box>
+					</Stack>
+				</Flex>
 
-					<Grid
-						templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
-						gap={4}>
-						<Stack
-							direction={'column'}
-							width={'100%'}>
-							{dataLocations.map((data) => (
-								<>
-									<Card
-										key={data.title}
-										boxShadow={0}
-										size={'sm'}>
-										<CardBody
-											paddingX={0}
-											paddingY={2}>
-											<Box
-												display={'flex'}
-												flexDirection={{ base: 'column', md: 'row' }}
-												justifyContent={'space-between'}
-												alignItems={{ base: 'start', md: 'center' }}
-												gap={4}>
-												<Text fontWeight={600}>{data.title + ' '}</Text>
+				<Grid
+					templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
+					gap={4}>
+					<Stack
+						direction={'column'}
+						width={'100%'}
+						gap={0}>
+						{dataLocations.map((data) => (
+							<>
+								<Card
+									key={data.title}
+									boxShadow={0}
+									size={'sm'}>
+									<CardBody
+										paddingX={0}
+										paddingY={'12px'}>
+										<Box
+											display={'flex'}
+											flexDirection={{ base: 'column', md: 'row' }}
+											justifyContent={'space-between'}
+											alignItems={{ base: 'start', md: 'center' }}
+											gap={4}>
+											<Text
+												fontWeight={600}
+												fontSize={'18px'}
+												lineHeight={'20px'}>
+												{data.title + ' '}
+											</Text>
 
-												<Button
-													rightIcon={
-														<Image
-															src="/assets/images/Right Arrow.svg"
-															width={5}
-														/>
-													}
-													size={'sm'}
-													variant={{ base: 'link', md: 'ghost' }}
-													colorScheme={'manadong-red'}>
-													Purchase Here
-												</Button>
-											</Box>
-										</CardBody>
-									</Card>
-									<Divider borderColor={'gray.300'} />
-								</>
-							))}
-						</Stack>
+											<Button
+												rightIcon={
+													<Image
+														src="/assets/images/Right Arrow.svg"
+														width={'16px'}
+													/>
+												}
+												size={'sm'}
+												variant={{ base: 'link', md: 'ghost' }}
+												colorScheme={'manadong-red'}
+												fontWeight={600}
+												fontSize={'14px'}
+												lineHeight={'20px'}
+												borderRadius={'8px'}>
+												Purchase Here
+											</Button>
+										</Box>
+									</CardBody>
+								</Card>
+								<Divider borderColor={'#D5D5D5'} />
+							</>
+						))}
+					</Stack>
 
-						<Box
-							backgroundImage={'url("/assets/images/HeaderImage.png")'}
-							backgroundPosition={'center'}
-							backgroundSize={'cover'}
-							width={'100%'}
-							height={{ base: '28rem', md: '100%' }}
-						/>
-					</Grid>
-				</Box>
+					<Box
+						backgroundImage={'url("/assets/images/HeaderImage.png")'}
+						backgroundPosition={'center'}
+						backgroundSize={'cover'}
+						width={'100%'}
+						height={{ base: '28rem', md: '100%' }}
+					/>
+				</Grid>
 			</Container>
 
 			<FooterBar />

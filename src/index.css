@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 .swiper-wrapper{
-    padding-bottom: 30px;
+    padding-bottom: 62px;
+    cursor: grab;
+}
+
+.swiper-wrapper:active{
+    cursor: grabbing;
 }
 
 .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
     bottom: 0px !important;
+    
 }
 
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    background-color: #004687;
+    background-color: #004789;
 }

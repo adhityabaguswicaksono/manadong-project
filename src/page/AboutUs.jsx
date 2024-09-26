@@ -1,6 +1,7 @@
 import {
 	Box,
 	Container,
+	Flex,
 	Grid,
 	Heading,
 	Image,
@@ -16,60 +17,66 @@ export default function AboutUs() {
 			<NavigationBar />
 
 			<Container
+				as={Stack}
 				maxWidth={'container.xl'}
-				paddingY={12}
-				gap={4}
-				minHeight={'calc(100dvh - 5.5rem - 16rem)'}>
-				<Box
-					width={'100%'}
-					display={'flex'}
+				gap={'32px'}
+				paddingY={'48px'}
+				minHeight={'calc(100dvh - 84.82px - 224px)'}>
+				<Flex
 					flexDirection={'column'}
-					flexWrap={'wrap'}
-					justifyContent={'start'}
-					gap={4}>
-					<Box>
+					alignItems={'start'}>
+					<Stack gap={0}>
 						<Heading
 							color={'manadong-blue.500'}
-							paddingY={2}>
+							fontSize={'28px'}
+							lineHeight={'40px'}
+							fontWeight={600}>
 							About Us
 						</Heading>
 						<Box
-							height={1}
-							width={'100px'}
+							height={'3px'}
+							width={'52px'}
 							backgroundColor={'manadong-red.500'}
-							borderRadius={2}></Box>
-					</Box>
+							borderRadius={'8px'}></Box>
+					</Stack>
+				</Flex>
 
-					<Grid
-						templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
-						gap={4}>
-						<Image src="/assets/images/HeaderImage.png"></Image>
+				<Grid
+					templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
+					gap={'24px'}>
+					<Image src="/assets/images/HeaderImage.png"></Image>
 
-						<Stack
-							direction={'column'}
-							gap={6}>
-							<Heading>About Our Company</Heading>
-							<Text>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Curabitur gravida, tortor id pretium viverra, lectus ante
-								tristique tortor, vitae accumsan ex mi at magna. Vestibulum
-								lacus nulla, hendrerit venenatis felis quis, rhoncus cursus
-								elit. Nullam convallis pulvinar leo at fermentum. Aliquam vel
-								varius tortor. Ut mattis, orci et elementum dapibus, sapien
-								ligula ultricies libero, in dapibus nisi nibh a nisl. Nam
-								vulputate neque sem, vitae eleifend massa laoreet eu. Donec
-								porttitor, velit efficitur mollis rhoncus, justo tortor
-								fermentum quam, at sodales mauris purus a mi. Donec dapibus
-								augue ac tristique vulputate. Phasellus id ultrices lorem. In
-								pharetra molestie libero cursus fringilla. Suspendisse consequat
-								sodales orci, at molestie nulla bibendum vitae. Pellentesque
-								massa nisl, vulputate faucibus dolor non, dapibus sagittis ante.
-								Sed faucibus felis at porta tristique. Cras placerat vel risus
-								id rutrum.
-							</Text>
-						</Stack>
-					</Grid>
-				</Box>
+					<Stack
+						direction={'column'}
+						gap={'24px'}>
+						<Heading
+							fontWeight={600}
+							fontSize={'28px'}
+							lineHeight={'40px'}>
+							About Our Company
+						</Heading>
+						<Text
+							fontWeight={400}
+							fontSize={'12px'}
+							lineHeight={'18px'}>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+							gravida, tortor id pretium viverra, lectus ante tristique tortor,
+							vitae accumsan ex mi at magna. Vestibulum lacus nulla, hendrerit
+							venenatis felis quis, rhoncus cursus elit. Nullam convallis
+							pulvinar leo at fermentum. Aliquam vel varius tortor. Ut mattis,
+							orci et elementum dapibus, sapien ligula ultricies libero, in
+							dapibus nisi nibh a nisl. Nam vulputate neque sem, vitae eleifend
+							massa laoreet eu. Donec porttitor, velit efficitur mollis rhoncus,
+							justo tortor fermentum quam, at sodales mauris purus a mi. Donec
+							dapibus augue ac tristique vulputate. Phasellus id ultrices lorem.
+							In pharetra molestie libero cursus fringilla. Suspendisse
+							consequat sodales orci, at molestie nulla bibendum vitae.
+							Pellentesque massa nisl, vulputate faucibus dolor non, dapibus
+							sagittis ante. Sed faucibus felis at porta tristique. Cras
+							placerat vel risus id rutrum.
+						</Text>
+					</Stack>
+				</Grid>
 			</Container>
 			<FooterBar />
 		</>
